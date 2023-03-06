@@ -15,7 +15,7 @@ export default class MainScene extends Phaser.Scene {
         layer1.setCollisionByProperty({ collides: true });
         this.matter.world.convertTilemapLayer(layer1);
 
-        this.player = new Phaser.Physics.Matter.Sprite(this.matter.world);
+        this.player = new Phaser.Physics.Matter.Sprite(this.matter.world, 100, 100);
         this.inputKeys = this.input.keyboard.addKeys({
             up: Phaser.Input.Keyboard.KeyCodes.W,
             down: Phaser.Input.Keyboard.KeyCodes.S,
