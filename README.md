@@ -4,6 +4,8 @@
 
 ## Resources
 
+Tutorial: https://youtu.be/fdXcD9X4NrQ
+
 ### Assets
 
 - Character: https://superdark.itch.io/16x16-free-npc-pack
