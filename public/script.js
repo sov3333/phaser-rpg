@@ -1,10 +1,12 @@
+import MainScene from "./MainScene.js";
+
 const config = {
     type: Phaser.AUTO,
     width: 512,
     height: 512,
     backgroundColor: "#333",
     parent: "game-container",
-    scene: [],
+    scene: [MainScene],
     scale: {
         zoom: 2,
     },
