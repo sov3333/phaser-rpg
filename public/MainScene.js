@@ -4,10 +4,15 @@ export default class MainScene extends Phaser.Scene {
     }
 
     preload() {
-        
+        this.load.image('tiles', 'assets/images/RPG Nature Tileset.png');
+        this.load.tilemapTiledJSON('map', 'assets/images/map.json');
     }
 
     create() {
+        const map = this.make.tilemap({ key: 'map' });
+        const tileset = map.addTilesetImage('RPG Nature Tileset', 'tiles', 32, 32, 0, 0);
+        const layer1 = map.createLayer('Tile Layer 1', tileset, 0, 0);
+
         this.player = new Phaser.Physics.Matter.Sprite(this.matter.world);
         this.inputKeys = this.input.keyboard.addKeys({
             up: Phaser.Input.Keyboard.KeyCodes.W,
