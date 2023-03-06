@@ -4,6 +4,8 @@ export default class MainScene extends Phaser.Scene {
     }
 
     preload() {
+        this.load.atlas('female', 'assets/images/female.png', 'assets/images/female_atlas.json');
+        this.load.animation('female_anim', 'assets/images/female_anim.json');
         this.load.image('tiles', 'assets/images/RPG Nature Tileset.png');
         this.load.tilemapTiledJSON('map', 'assets/images/map.json');
     }
@@ -15,7 +17,9 @@ export default class MainScene extends Phaser.Scene {
         layer1.setCollisionByProperty({ collides: true });
         this.matter.world.convertTilemapLayer(layer1);
 
-        this.player = new Phaser.Physics.Matter.Sprite(this.matter.world, 100, 100);
+        this.player = new Phaser.Physics.Matter.Sprite(this.matter.world, 100, 100, 'female', 'townsfolk_f_idle_1');
+        this.add.existing(this.player);
+
         this.inputKeys = this.input.keyboard.addKeys({
             up: Phaser.Input.Keyboard.KeyCodes.W,
             down: Phaser.Input.Keyboard.KeyCodes.S,
@@ -25,6 +29,8 @@ export default class MainScene extends Phaser.Scene {
     }
 
     update() {
+
+        this.player.anims.play('female_idle', true);
 
         // handle player movement speed
         const speed = 2.5;
